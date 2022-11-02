@@ -1,5 +1,5 @@
 # Clona el proyecto
-get clone https://github.com/kant003/testingExercices.git
+get clone https://github.com/kant003/testingExercises.git
 
 # Instala las dependencias
 
