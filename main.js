@@ -1,1 +1,1 @@
-import { setupCounter } from './src/counter.js'
+import { multiply } from './src/ejercicio.js'
