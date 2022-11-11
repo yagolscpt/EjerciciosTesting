@@ -14,53 +14,60 @@ import {
 describe("Conjunto de test del ejercicio.js", () => {
   it("Cuando multiplico 2 x 3 tiene que dar 6", () => {
     const r = multiply(2, 3);
-    // tu código aquí
+   expect(multiply(2,3)).toEqual(6);
   });
 
   it("Cuando multiplico 2 x 3 no tiene que dar 0", () => {
-    // tu código aquí
+  expect(multiply(2,3))!=0;
   });
 
   it("Cuando multiplico 2 x 3 tengo que obtener un valor positivo o cero", () => {
-    // tu código aquí
+    expect(multiply(2,3)).toBeGreaterThanOrEqual(0);
   });
 
   it("Cuando divido 2 a la 3 tiene que dar más o menos 0.666. Precisión de 2 decimales", () => {
-    // tu código aquí
+   expect((2/3).toFixed(4)).toContain(0.666);
   });
 
   it("Cuando divido 6 entre 0 tiene lanzar una excepción 'No se puede dividir por 0' ", () => {
-    // tu código aquí
+    expect(() => div(2, 0)).toThrowError("No se puede dividir por 0");
   });
 
   it("Al llamar a la función first. El primer elemento de la lista ['juan', 'pedro', 'ivan'] debe ser 'juan'", () => {
-    // tu código aquí
+    const array=['juan','pedro','ivan'];
+    expect(first(array)).toBe('juan');
   });
 
   it("La llamada a la función first, deberá devolver algo truthy", () => {
-    // tu código aquí
+    const array=['juan','pedro','ivan'];
+   expect(first(array)).toBeTruthy();
   });
 
   it("Al llamar a la función first. El primer elemento de la lista ['juan', 'pedro', 'ivan'] tiene que ser de tipo string", () => {
-    // tu código aquí
+    const array=['juan','pedro','ivan'];
+    expect(first(array)).toBeTypeOf('string')
   });
 
   it("La llamada a la función teachers debe devolver una array de longitud 3", () => {
     const r = teachers();
-    // tu código aquí
-    // tu código aquí
+    expect(r).toHaveLength(3)
   });
 
   it("La llamada a la función teachers debe contener al profe 'Angel'", () => {
-    // tu código aquí
+   const r = teachers()
+   expect(r).toContain('Angel')
   });
 
   it("La llamada a la función isEven debe retornar algo. Usa un espía", () => {
-    // tu código aquí
+   const isEvenSpy= vi.fn(isEven)
+   const r = isEvenSpy(2)
+   expect(r).toBe(true)
+   expect(isEvenSpy).toHaveReturned()
   });
 
   it("La llamada a la función phrase debe devolver algo que comineza por 'Ha' y termina por '!'. Usa una regex ", () => {
-    // tu código aquí
+   const r = phrase()
+   expect(r).toMatch(/^Ha.*$/)
   });
 
   it("Sáltate este test para que nos se ejecute.", () => {
@@ -76,14 +83,16 @@ describe("Conjunto de test del ejercicio.js", () => {
   });
 
   it("La llamada a la función getPersonInfo debe devolver un objeto con la propiedad 'age'", () => {
-    // tu código aquí
+    const r = getPersonInfo().address
+    expect(r).toHaveProperty('city')
   });
 
   it("La llamada a la función getPersonInfo debe devolver un objeto con la propiedad name = 'Juan", () => {
-    // tu código aquí
+   const r = getPersonInfo()
+   expect(r).toEqual(expect.objectContaining({name:'Juan'}))
   });
 
   it("La llamada a la función asincrona getChuckNorrisPhase, debe devolver un objeto con la propiedad 'value'", async () => {
-    // tu código aquí
+    await expect(getChuckNorrisPhase()).resolves.toHaveProperty('value')
   });
 });

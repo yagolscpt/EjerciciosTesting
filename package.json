@@ -11,10 +11,12 @@
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
+    "buffer": "^6.0.3",
     "vite": "^3.2.0",
     "vitest": "^0.24.5"
   },
   "dependencies": {
     "node-fetch": "^3.2.10"
   }
+  
 }
